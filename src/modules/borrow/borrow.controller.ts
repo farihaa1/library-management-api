@@ -15,6 +15,6 @@ const borrowBook = catchAsync(async (req: Request,
     })
 })
 
-export const bookController = {
+export const borrowController = {
     borrowBook
 }
