@@ -55,9 +55,25 @@ const updateBookFromDB = async (id: string | string[],
     return result;
 }
 
+const deleteBookFromDB = async (id: string) => {
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        throw new AppError(400, "Invalid book ID");
+    }
+
+    const result = await Book.findByIdAndDelete(id);
+
+    if (!result) {
+        throw new AppError(404, "Book not found");
+    }
+
+    return null;
+};
+
 export const bookService = {
     createBookIntoDb,
     getBooksFromDB,
     getBookByIdFromDB,
-    updateBookFromDB
+    updateBookFromDB,
+    deleteBookFromDB
 }

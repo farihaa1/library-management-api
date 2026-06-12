@@ -41,7 +41,7 @@ const getBookByIdFromDB = catchAsync(async (req: Request, res: Response) => {
 const updateBookFromDB = catchAsync(async (req: Request, res: Response) => {
     const { bookId } = req.params;
 
-   
+
 
     const result = await bookService.updateBookFromDB(bookId, req.body);
 
@@ -53,9 +53,23 @@ const updateBookFromDB = catchAsync(async (req: Request, res: Response) => {
     });
 })
 
+const deleteBookFromDB = catchAsync(async (req, res) => {
+    const { bookId } = req.params;
+
+    await bookService.deleteBookFromDB(bookId as string);
+
+    sendResponse(res, {
+        success: true,
+        statusCode: 200,
+        message: "Book deleted successfully",
+        data: null,
+    });
+});
+
 export const bookController = {
     createBookIntoDb,
     getBooksFromDb,
     getBookByIdFromDB,
-    updateBookFromDB
+    updateBookFromDB,
+    deleteBookFromDB
 }
