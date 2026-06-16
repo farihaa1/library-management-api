@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import { catchAsync } from "../../utils/catchAsync"
 import { bookService } from "./book.service"
 import { sendResponse } from "../../utils/sendResponse"
-import Book from "./books.model"
+
 
 const createBookIntoDb = catchAsync(async (req: Request, res: Response) => {
     const result = await bookService.createBookIntoDb(req.body)

@@ -1,16 +1,22 @@
 import app from "../app";
-import { NextFunction, Request, Response } from "express"
+import { Request, Response } from "express";
 
 app.use(
     (
-        error: any,
+        error: unknown,
         req: Request,
         res: Response,
-        next: NextFunction
+       
     ) => {
-        res.status(error.statusCode || 500).json({
+
+        const err = error as {
+            statusCode?: number;
+            message?: string;
+        };
+
+        res.status(err.statusCode || 500).json({
             success: false,
-            message: error.message || "Something went wrong",
+            message: err.message || "Something went wrong",
             error,
         });
     }
