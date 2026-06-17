@@ -12,9 +12,9 @@ This API provides complete CRUD operations for managing books with proper valida
 
 ---
 
-# 🚀 Features
+#  Features
 
-## 📖 Book Management
+## Book Management
 
 - ✅ Create new books
 - ✅ Retrieve all books
@@ -22,7 +22,7 @@ This API provides complete CRUD operations for managing books with proper valida
 - ✅ Update book information
 - ✅ Delete books
 
-## ⚡ Advanced Features
+## Advanced Features
 
 - TypeScript support
 - Mongoose schema validation
@@ -36,7 +36,7 @@ This API provides complete CRUD operations for managing books with proper valida
 
 ---
 
-# 🛠️ Technologies Used
+# Technologies Used
 
 | Technology | Purpose |
 |---|---|
@@ -49,7 +49,7 @@ This API provides complete CRUD operations for managing books with proper valida
 
 ---
 
-# 📂 Project Structure
+# Project Structure
 
 ```text
 src
@@ -79,7 +79,7 @@ src
 
 ---
 
-# ⚙️ Installation & Setup
+# Installation & Setup
 
 ## Clone Repository
 
@@ -97,7 +97,7 @@ npm install
 
 ---
 
-# 🔐 Environment Variables
+# Environment Variables
 
 Create a `.env` file:
 
@@ -111,7 +111,7 @@ NODE_ENV=development
 
 ---
 
-# ▶️ Run Project
+# Run Project
 
 ### Development Mode
 
@@ -129,7 +129,7 @@ npm start
 
 ---
 
-# 📖 API Documentation
+# API Documentation
 
 ## Base URL
 
@@ -189,7 +189,7 @@ When a user borrows a book, the system:
 
 ---
 
-# 📂 Borrow Module Structure
+# Borrow Module Structure
 
 ```text
 modules
@@ -205,7 +205,7 @@ modules
 
 ---
 
-# 📌 Borrow API Endpoint
+# Borrow API Endpoint
 
 ## Borrow a Book
 
@@ -245,7 +245,7 @@ modules
 
 ---
 
-# 🧠 Borrow Business Logic
+# Borrow Business Logic
 
 ## 1. Find Book
 
@@ -320,7 +320,7 @@ Response:
 
 ---
 
-# 🔥 Automatic Copy Update
+# Automatic Copy Update
 
 Before borrowing:
 
@@ -352,7 +352,7 @@ Book
 
 ---
 
-# 📚 Borrow Database Model
+# Borrow Database Model
 
 ```ts
 {
@@ -370,7 +370,7 @@ Book
 
 ---
 
-# 🔗 Book Relationship
+# Book Relationship
 
 Borrow collection references Book:
 
@@ -393,7 +393,7 @@ Borrow
 
 ---
 
-# ⚠️ Borrow Validation
+# Borrow Validation
 
 The API validates:
 

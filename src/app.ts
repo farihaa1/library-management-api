@@ -1,4 +1,4 @@
-import express, { Application, Request, Response } from "express";
+import express, { NextFunction, Application, Request, Response } from "express";
 import routes from "./routes";
 
 const app: Application = express();
@@ -11,24 +11,26 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 // Global Error Handler
-app.use((
-    error: unknown,
-    req: Request,
-    res: Response,
-) => {
+app.use(
+    (
+        error: unknown,
+        req: Request,
+        res: Response,
+        _next: NextFunction
+    ) => {
+        const err = error as {
+            statusCode?: number;
+            message?: string;
+        };
 
-    const err = error as {
-        statusCode?: number;
-        message?: string;
-    };
+        const statusCode = err.statusCode || 500;
+        const message = err.message || "Something went wrong";
 
-    const statusCode = err.statusCode || 500;
-    const message = err.message || "Something went wrong";
-
-    res.status(statusCode).json({
-        success: false,
-        message,
-        error,
-    });
-});
-export default app;
+        res.status(statusCode).json({
+            success: false,
+            message,
+            error,
+        });
+        _next();
+    }
+);
