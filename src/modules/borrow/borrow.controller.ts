@@ -15,6 +15,20 @@ const borrowBook = catchAsync(async (req: Request,
     })
 })
 
+const getBorrowedBooksSummary = catchAsync(
+  async (req: Request, res: Response) => {
+    const result = await borrowService.getBorrowedBooksSummary();
+
+    sendResponse(res, {
+      success: true,
+      statusCode: 200,
+      message: "Borrowed books summary retrieved successfully",
+      data: result,
+    });
+  }
+);
+
 export const borrowController = {
-    borrowBook
+    borrowBook,
+    getBorrowedBooksSummary
 }

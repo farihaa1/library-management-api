@@ -28,23 +28,23 @@ const bookSchema = new Schema<
         copies: {
             type: Number,
             required: true,
-            min: 0
+            min: [0, "Copies must be a positive number"]
         },
         available: {
             type: Boolean,
             default: true
         }
     }, { timestamps: true })
-
+bookSchema.methods.updateAvailability = function () {
+    this.available = this.copies > 0;
+};
 
 bookSchema.pre("save", function () {
     this.available = Number(this.copies) > 0;
-
-})
+});
 
 bookSchema.post("save", function (doc) {
-    console.log(`${doc.title} saved successfully`)
-})
-
-const Book = model<IBook,BookModel>("Book", bookSchema);
+    console.log(`${doc.title} saved successfully`);
+});
+const Book = model<IBook, BookModel>("Book", bookSchema);
 export default Book;

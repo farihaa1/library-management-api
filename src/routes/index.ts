@@ -5,7 +5,7 @@ import borrowRoutes from "../modules/borrow/borrow.route";
 const routes = Router();
 
 routes.use("/books", bookRoutes);
-routes.use("/borrow_book", borrowRoutes);
+routes.use("/borrow", borrowRoutes);
 
 export default routes;
 

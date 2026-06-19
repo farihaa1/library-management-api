@@ -8,5 +8,5 @@ const book_route_1 = __importDefault(require("../modules/books/book.route"));
 const borrow_route_1 = __importDefault(require("../modules/borrow/borrow.route"));
 const routes = (0, express_1.Router)();
 routes.use("/books", book_route_1.default);
-routes.use("/borrow_book", borrow_route_1.default);
+routes.use("/borrow", borrow_route_1.default);
 exports.default = routes;

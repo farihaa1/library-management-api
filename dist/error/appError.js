@@ -3,7 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class AppError extends Error {
     constructor(statusCode, message) {
         super(message);
-        this.statusCode = statusCode;
+        this.statusCode = statusCode || 500;
+        this.name = "AppError";
         Error.captureStackTrace(this, this.constructor);
     }
 }

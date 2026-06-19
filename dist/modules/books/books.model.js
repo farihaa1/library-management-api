@@ -25,13 +25,16 @@ const bookSchema = new mongoose_1.Schema({
     copies: {
         type: Number,
         required: true,
-        min: 0
+        min: [0, "Copies must be a positive number"]
     },
     available: {
         type: Boolean,
         default: true
     }
 }, { timestamps: true });
+bookSchema.methods.updateAvailability = function () {
+    this.available = this.copies > 0;
+};
 bookSchema.pre("save", function () {
     this.available = Number(this.copies) > 0;
 });

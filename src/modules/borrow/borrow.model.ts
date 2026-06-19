@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 import { IBorrow } from "./borrow.interface";
+import { Model } from "mongoose";
 
 const borrowSchema = new Schema<IBorrow>(
   {
@@ -31,9 +32,9 @@ borrowSchema.post("save", function (doc) {
   );
 });
 
-const Borrow = model<IBorrow>(
-  "Borrow",
-  borrowSchema
+const Borrow = model<IBorrow, Model<IBorrow>>(
+"Borrow",
+borrowSchema
 );
 
 

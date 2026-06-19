@@ -13,6 +13,16 @@ const borrowBook = (0, catchAsync_1.catchAsync)(async (req, res) => {
         data: result
     });
 });
+const getBorrowedBooksSummary = (0, catchAsync_1.catchAsync)(async (req, res) => {
+    const result = await borrow_service_1.borrowService.getBorrowedBooksSummary();
+    (0, sendResponse_1.sendResponse)(res, {
+        success: true,
+        statusCode: 200,
+        message: "Borrowed books summary retrieved successfully",
+        data: result,
+    });
+});
 exports.borrowController = {
-    borrowBook
+    borrowBook,
+    getBorrowedBooksSummary
 };
