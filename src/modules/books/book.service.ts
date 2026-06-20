@@ -7,7 +7,7 @@ import Book from "./books.model";
 const createBookIntoDb = async (payload: IBook) => {
     const data = await Book.create(payload);
     if (!data) throw new AppError(404, "data couldn't saved")
-    console.log(data)
+   
     return data;
 }
 
@@ -19,6 +19,7 @@ const getBooksFromDB = async (query: Record<string, string>) => {
 
     const filterQuery = filter ? { genre: filter } : {}
     const books = await Book.find(filterQuery).sort({ createdAt: sortOrder }).limit(limit);
+    
 
     return books;
 }
@@ -29,7 +30,7 @@ const getBookByIdFromDB = async (id: string | string[]) => {
     }
 
     const result = await Book.findById(id);
-    console.log(id)
+ 
     if (!result) throw new AppError(404, "Book not found")
 
     return result;
@@ -49,7 +50,7 @@ const updateBookFromDB = async (id: string | string[],
         new: true,
         runValidators: true,
     });
-    console.log(id)
+ 
     if (!result) throw new AppError(404, "Book not found")
 
     return result;

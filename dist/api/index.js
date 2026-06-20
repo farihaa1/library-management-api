@@ -3,18 +3,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = handler;
 const mongoose_1 = __importDefault(require("mongoose"));
-// import app from "./app";
-const config_1 = __importDefault(require("./config"));
-async function server() {
-    try {
+const app_1 = __importDefault(require("../app"));
+const config_1 = __importDefault(require("../config"));
+let isConnected = false;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function handler(req, res) {
+    if (!isConnected) {
         await mongoose_1.default.connect(config_1.default.database_url);
-        // app.listen(config.port, () => {
-        //   console.log(`Server running on port ${config.port}`);
-        // });
+        isConnected = true;
     }
-    catch (error) {
-        console.log(error);
-    }
+    return (0, app_1.default)(req, res);
 }
-server();

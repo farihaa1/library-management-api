@@ -5,8 +5,8 @@ import { sendResponse } from "../../utils/sendResponse"
 
 
 const createBookIntoDb = catchAsync(async (req: Request, res: Response) => {
-    const result = await bookService.createBookIntoDb(req.body)
-    console.log(req.body)
+    const result = await bookService.createBookIntoDb(req.body);
+   
     sendResponse(res, {
         statusCode: 201,
         success: true,

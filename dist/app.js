@@ -10,9 +10,13 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use('/api', routes_1.default);
 app.get("/", (req, res) => {
-    res.send("app is running");
+    res.json({
+        success: true,
+        message: "Library Management API",
+    });
 });
 app.use((error, req, res, _next) => {
+    void _next;
     if (error instanceof mongoose_1.default.Error.ValidationError) {
         return res.status(400).json({
             success: false,

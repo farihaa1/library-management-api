@@ -12,6 +12,20 @@ This API provides complete CRUD operations for managing books with proper valida
 
 ---
 
+## Links
+
+**GitHub Repository:**  
+https://github.com/farihaa1/library-management-api
+
+**Live Deployment:**  
+https://library-management-api-teal-nu.vercel.app/
+
+---
+
+
+
+---
+
 #  Features
 
 ## Book Management

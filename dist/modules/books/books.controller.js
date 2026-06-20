@@ -6,7 +6,6 @@ const book_service_1 = require("./book.service");
 const sendResponse_1 = require("../../utils/sendResponse");
 const createBookIntoDb = (0, catchAsync_1.catchAsync)(async (req, res) => {
     const result = await book_service_1.bookService.createBookIntoDb(req.body);
-    console.log(req.body);
     (0, sendResponse_1.sendResponse)(res, {
         statusCode: 201,
         success: true,

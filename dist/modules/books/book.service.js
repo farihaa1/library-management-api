@@ -11,7 +11,6 @@ const createBookIntoDb = async (payload) => {
     const data = await books_model_1.default.create(payload);
     if (!data)
         throw new appError_1.default(404, "data couldn't saved");
-    console.log(data);
     return data;
 };
 const getBooksFromDB = async (query) => {
@@ -27,7 +26,6 @@ const getBookByIdFromDB = async (id) => {
         throw new appError_1.default(400, "Invalid book ID");
     }
     const result = await books_model_1.default.findById(id);
-    console.log(id);
     if (!result)
         throw new appError_1.default(404, "Book not found");
     return result;
@@ -43,7 +41,6 @@ const updateBookFromDB = async (id, payload) => {
         new: true,
         runValidators: true,
     });
-    console.log(id);
     if (!result)
         throw new appError_1.default(404, "Book not found");
     return result;
